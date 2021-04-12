@@ -16,6 +16,24 @@ CREATE TABLE IF NOT EXISTS parts (
   KEY items_fk_products (product_id)
 );
 
+INSERT INTO parts (part_id, vendor_id, product_id, part_name, part_price, stock) VALUES
+('BF2001', '101', 'L705', 'bike frame - cruising bike', '175.00', 1),
+('F0235', '202', 'M023', 'bike frame - mountain', '600.00', 1),
+('F9870', '202', 'L705', 'bike frame - L705', '625.00', 1),
+('BF452', '303', 'B125', 'bike frame - racing', '550.00', 1),
+('F6431', '202', 'B125', 'bike frame - racing', '450.00', 1),
+('BF1478', '101', 'W952', 'bike frame - W952', '90.00', 1),
+('F9632', '202', 'W952', 'bike frame - W952', '625.00', 1),
+('S258', '202', 'L705', 'bike seat - L705', '45.00', 1),
+('BT852', '303', 'L705', 'front- tire - L705', '550.00', 1),
+('BT987', '303', 'M023', 'front tire - mountain', '45.00', 1),
+('BT9635', '101', 'B125', 'front tire - racing', '175.00', 1),
+('BT4697', '202', 'W952', 'front tire - W952', '45.00', 1),
+('C3402', '303', 'M023', 'front tire - M023', '200.00', 1),
+('CS3214', '202', 'W952', 'front tire - W952', '250.00', 1),
+('K98', '202', 'B125', 'front tire - B125', '190.00', 1),
+('S0023', '101', 'L705', 'front tire - L705', '175.00', 1);
+
 DROP TABLE IF EXISTS products;
 CREATE TABLE IF NOT EXISTS products (
   product_id varchar(4) NOT NULL,
@@ -32,7 +50,9 @@ CREATE TABLE IF NOT EXISTS products (
 
 INSERT INTO products (product_id, product_name, description, list_price, stock) VALUES
 ('W952', 'The Road Warrior', 'Take this on the quiet back roads or through tough terrain.', '2500.00', 1),
-('B125', 'Racing Bike', 'Our premier racing bike.', '2.00', 1);
+('B125', 'Racing Bike', 'Our premier racing bike.', '2.00', 1),
+('M023', 'Premier Mountain Bike',	'This bike will have you scaling new heights.',	'780.00', 1),
+('L705', 'Cruising Bike', 'For the those who enjoy a causal bike ride.', '2500.00', 1);
 
 -- --------------------------------------------------------
 
@@ -52,7 +72,10 @@ CREATE TABLE IF NOT EXISTS sellers (
 );
 
 -- --------------------------------------------------------
-
+-- I'll come back to finish this
+INSERT INTO sellers (seller_id, vendor_id, sell_name, phone, email_address) VALUES
+(1, '101',	'Speedster','Elliot Jones', '',	'ejones@speedster.com'),
+(2, '101',	'Speedster','Elliot Jones', '',	'ejones@speedster.com');
 --
 -- Table structure for table users
 --
