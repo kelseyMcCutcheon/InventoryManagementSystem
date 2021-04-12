@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <!--
 Repair Page
@@ -14,7 +18,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
         </style>
     </head>
     <body>
-        <h1>Welcome Repair</h1>
+        <h1>Welcome <?php echo $_SESSION['username'] ?></h1>
         <p>Please Select An Action</p>
         <form action="repair.php" method="post">
             <input type="button" value="Use Item"   name="useItem" /><br>

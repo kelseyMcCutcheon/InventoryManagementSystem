@@ -1,6 +1,7 @@
 <?php
     // Validates the login
-    
+    session_start();
+
     require "../database/connection.php";
 
     $connection = db_connect();
@@ -18,13 +19,14 @@
         else {
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username']=$username;
+                echo $_SESSION['username'];
                 $user_role = mysqli_fetch_assoc($result)['user_type'];
                 $_SESSION['user_type'] = $user_role;
                 if ($user_role == 1) {
-                     include "../admin/admin.html";
+                    header("Location: ../admin/adminView.php");
                 }
                 else if ($user_role == 2) {
-                    include "../repair/repair.html";
+                    header("Location: ../repair/repairView.php");
                 }
             }
             else {
