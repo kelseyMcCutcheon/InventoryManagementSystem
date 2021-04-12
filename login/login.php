@@ -1,7 +1,7 @@
 <?php
     // Validates the login
 
-    require "connection.php";
+    require "../database/connection.php";
 
     $connection = db_connect();
 
@@ -18,8 +18,15 @@
         else {
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username']=$username;
-                $_SESSION['user_type']=mysqli_fetch_assoc($result)['user_type'];
-                echo "Login successful!";
+                $user_role = mysqli_fetch_assoc($result)['user_type'];
+                $_SESSION['user_type'] = $user_role;
+                if ($user_role == 1) {
+                     echo "../admin/admin.html";
+                }
+                else if ($user_role == 2) {
+                    echo "../repair/repair.html";
+                }
+
             }
             else {
                  echo "Incorrect Login";
