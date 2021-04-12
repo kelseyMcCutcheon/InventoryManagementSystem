@@ -1,6 +1,6 @@
 <?php
     // Validates the login
-
+    
     require "../database/connection.php";
 
     $connection = db_connect();
@@ -21,12 +21,11 @@
                 $user_role = mysqli_fetch_assoc($result)['user_type'];
                 $_SESSION['user_type'] = $user_role;
                 if ($user_role == 1) {
-                     echo "../admin/admin.html";
+                     include "../admin/admin.html";
                 }
                 else if ($user_role == 2) {
-                    echo "../repair/repair.html";
+                    include "../repair/repair.html";
                 }
-
             }
             else {
                  echo "Incorrect Login";
