@@ -18,19 +18,29 @@
             die("Query Failed: " . mysqli_error(($connection)));
         else {
             if (mysqli_num_rows($result) == 1) {
+                // getting rid of login error if exists
+                if (isset($_SESSION['login_err'])) {
+                    unset($_SESSION['login_err']);
+                }
+                // storing username
                 $_SESSION['username']=$username;
-                echo $_SESSION['username'];
+                // getting and storing user role
                 $user_role = mysqli_fetch_assoc($result)['user_type'];
                 $_SESSION['user_type'] = $user_role;
+                // admin
                 if ($user_role == 1) {
                     header("Location: ../admin/adminView.php");
                 }
+                // repair
                 else if ($user_role == 2) {
                     header("Location: ../repair/repairView.php");
                 }
             }
             else {
-                 echo "Incorrect Login";
+                // setting login error
+                $_SESSION['login_err'] = "Invalid Login";
+                // seding back to login
+                header("Location: ../index.php");
             }
         }
     }
