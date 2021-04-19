@@ -32,7 +32,37 @@ INSERT INTO parts (part_id, vendor_id, product_id, part_name, part_price, stock)
 ('C3402', '303', 'M023', 'front tire - M023', '200.00', 1),
 ('CS3214', '202', 'W952', 'front tire - W952', '250.00', 1),
 ('K98', '202', 'B125', 'front tire - B125', '190.00', 1),
-('S0023', '101', 'L705', 'front tire - L705', '175.00', 1);
+('S0023', '101', 'L705', 'front tire - L705', '175.00', 1),
+('J8790', '202', 'M023', 'handle bar - M023', '120.00', 1),
+('S2301', '303', 'W952', 'handle bar - W952', '120.00', 1),
+('S124', '202', 'L705', 'handle bar - L705', '90.00', 1),
+('S1029', '101', 'B125', 'handle bar - B125', '90.00', 1),
+('S3297', '101', 'L705', 'bike seat - L705', '60.00', 1),
+('S4501', '101', 'W952', 'bike seat - W952', '50.00', 1),
+('S267', '101', 'M023', 'bike seat - M023', '50.00', 1),
+('S678', '101', 'B125', 'bike seat - B125', '60.00', 1),
+('BP0504', '202', 'W952', 'bike pedals - W952', '600.00', 1),
+('BP9802', '202', 'M023', 'bike pedals - M023', '450.00', 1),
+('BP301', '101', 'L705', 'bike pedals - L705', '90.00', 1),
+('BP942', '101', 'B125', 'bike pedals - B125', '50.00', 1),
+('RTW025', '101', 'M023', 'rear tire w/chain & mount - M023', '175.00', 1),
+('RTW985', '202', 'B125', 'rear tire w/chain & mount - B125', '600.00', 1),
+('RTW7135', '202', 'L705', 'rear tire w/chain & mount - L705', '625.00', 1),
+('RT7391', '303', 'W952', 'rear tire w/chain & mount - W952', '550.00', 1),
+('BDR001', '202', 'M023', 'derailleurs w/cables - M023', '450.00', 1),
+('BDR510', '101', 'L705', 'derailleurs w/cables - L705', '90.00', 1),
+('BDT311', '202', 'B125', 'derailleurs w/cables - B125', '625.00', 1),
+('BDT888', '202', 'W952', 'derailleurs w/cables - W952', '45.00', 1),
+('FF45', '303', 'L705', 'front & rear fenders - L705', '550.00', 1),
+('FF99', '303', 'W952', 'front & rear fenders - W952', '45.00', 1),
+('BBS087', '101', 'M023', 'brake systems w/cables - M023', '175.00', 1),
+('BBS986', '202', 'L705', 'brake systems w/cables - L705', '45.00', 1),
+('BBS055', '303', 'B125', 'brake systems w/cables - B125', '200.00', 1),
+('BBS777', '202', 'W952', 'brake systems w/cables - W952', '250.00', 1),
+('BR7896', '202', 'W952', 'reflectors - W952 bike', '190.00', 1),
+('BR4563', '101', 'B125', 'reflectors - B125 bike', '175.00', 1),
+('BR0021', '202', 'L705', 'reflectors - L705 bike', '120.00', 1),
+('BR9164', '303', 'M023', 'reflectors - M023 bike', '190.00', 1);
 
 DROP TABLE IF EXISTS products;
 CREATE TABLE IF NOT EXISTS products (
@@ -73,9 +103,14 @@ CREATE TABLE IF NOT EXISTS sellers (
 
 -- --------------------------------------------------------
 -- I'll come back to finish this
-INSERT INTO sellers (seller_id, vendor_id, sell_name, phone, email_address) VALUES
-(1, '101',	'Speedster','Elliot Jones', '',	'ejones@speedster.com'),
-(2, '101',	'Speedster','Elliot Jones', '',	'ejones@speedster.com');
+ INSERT INTO sellers (seller_id, vendor_id, sell_name, phone, email_address) VALUES
+ ('1', '101','Elliot Jones', null,	'ejones@speedster.com'),
+ ('2', '202', 'Sally Saw', '888-865-6547', 'ss@acme.com'),
+ ('3', '202', 'Steve Perez', '888-865-1235', 'sp@acme.com'),
+ ('4', '303', 'John Cuts', '800-654-9874', 'jc@gmail.com'),
+ ('5', '202', 'Jane Smith', '888-865-4569', 'js@acme.com'),
+ ('6', '101', 'Mary Course', null, 'mcourse@speedster.com'),
+ ('7', '101', 'Sarah Hopkins', null, 'shopkins@speedster.com');
 --
 -- Table structure for table users
 --
@@ -105,3 +140,8 @@ CREATE TABLE IF NOT EXISTS vendor (
   zip_code varchar(10) NOT NULL,
   PRIMARY KEY (vendor_id)
 );
+
+INSERT INTO vendor (vendor_id, vendor_name, line1, city, state, zip_code) VALUES
+('101', 'Speedster', '42 West Overland Drive', 'Augusta', 'ME', '04333'),
+('202', 'Acme', '100 Mountain View Road', 'Colchester', 'VT', '05446'),
+('303', 'Widget', '1 Main Street Suite 4A', 'Manchester', 'NH', '03108');
