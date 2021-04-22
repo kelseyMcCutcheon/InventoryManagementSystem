@@ -119,6 +119,8 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
   user_id int NOT NULL AUTO_INCREMENT,
   email_address varchar(255) NOT NULL,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
   PASSWORD varchar(255) NOT NULL,
   user_type tinyint(1) NOT NULL,
   PRIMARY KEY (user_id)
