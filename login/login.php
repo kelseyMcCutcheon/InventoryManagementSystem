@@ -10,7 +10,7 @@
     $pw = $_POST["password"];
     
     if ($username != "" && $pw != "") {
-        $query = "select user_type from users where email_address='".$username."' and password='".$pw."';";
+        $query = "select first_name, last_name, user_type from users where email_address='".$username."' and password='".$pw."';";
     
         $result = mysqli_query($connection, $query);
 
@@ -22,11 +22,19 @@
                 if (isset($_SESSION['login_err'])) {
                     unset($_SESSION['login_err']);
                 }
+                $row = mysqli_fetch_assoc($result);
+
                 // storing username
                 $_SESSION['username']=$username;
+
+                // getting and storing user name
+                $_SESSION['fn'] = $row['first_name'];
+                $_SESSION['ln'] = $row['last_name'];
+
                 // getting and storing user role
-                $user_role = mysqli_fetch_assoc($result)['user_type'];
-                $_SESSION['user_type'] = $user_role;
+                $user_role =  $row['user_type'];
+                $_SESSION['user_role'] = $user_role;
+
                 // admin
                 if ($user_role == 1) {
                     header("Location: ../admin/adminView.php");
@@ -34,6 +42,9 @@
                 // repair
                 else if ($user_role == 2) {
                     header("Location: ../repair/repairView.php");
+                }
+                else {
+                    die("An error has occured, try reloading the page.");
                 }
             }
             else {
