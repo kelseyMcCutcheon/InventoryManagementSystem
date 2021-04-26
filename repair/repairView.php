@@ -1,5 +1,9 @@
 <?php
     session_start();
+    // checking if user is authorized
+    if ($_SESSION['user_role'] != 2) {
+        die("unauthorized access");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +15,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
 <html>
     <head>
         <title>Inventory Management System</title>
+        <link rel="stylesheet" href="../style.css">
         <style type="text/css">
             body{
                 text-align: center;
@@ -18,7 +23,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
         </style>
     </head>
     <body>
-        <h1>Welcome <?php echo $_SESSION['username'] ?></h1>
+        <h1>Welcome <?php echo $_SESSION['fn'] ?></h1>
         <p>Please Select An Action</p>
         <form action="repair.php" method="post">
             <input type="button" value="Use Item"   name="useItem" /><br>
