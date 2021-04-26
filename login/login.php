@@ -10,7 +10,7 @@
     $pw = $_POST["password"];
     
     if ($username != "" && $pw != "") {
-        $query = "select first_name, last_name, user_type from users where email_address='".$username."' and password='".$pw."';";
+        $query = "select user_id, first_name, last_name, user_type from users where email_address='".$username."' and password='".$pw."';";
     
         $result = mysqli_query($connection, $query);
 
@@ -26,6 +26,9 @@
 
                 // storing username
                 $_SESSION['username']=$username;
+
+                // storing user_id
+                $_SESSION['user_id'] = $row['user_id'];
 
                 // getting and storing user name
                 $_SESSION['fn'] = $row['first_name'];

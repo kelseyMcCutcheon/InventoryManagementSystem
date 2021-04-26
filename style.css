@@ -1,0 +1,77 @@
+html {
+    background-color: #233142;
+    color: #e3e3e3;
+    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: #f95959;    
+}
+
+input[type=text], input[type=submit], input[type=button],select, option, button{
+    background-color: #455d7a;
+    border-radius: 3px;
+    border: 1px solid #f95959;
+    color: #e3e3e3;
+    transition: all .25s ease-in-out;
+}
+input[type=text]:hover, input[type=submit]:hover, input[type=button]:hover,select:hover, option:hover, button:hover {
+    background-color: #e3e3e3;
+    color: #233142;
+    transform: scale(1.02);
+}
+table {
+    background-color: #455d7a;
+    border-radius: 3px;
+    color: #e3e3e3;
+    text-align: center;
+}
+tr, td {
+    padding: 1vw;
+    border: 1px solid #f95959;
+}
+.removeUser {
+    padding: .3vw;
+    background-color: #233142; 
+    transition: all .25s ease-in-out;
+    font-size: .8vw;
+}
+.removeUser:hover {
+    background-color: #e3e3e3;
+    color: #233142;
+    transform: scale(1.05);
+}
+
+#userTableDiv {
+    width: 40%;
+    padding-left: 5%;
+    padding-right: 5%;
+    float: left;
+}
+#userTableDiv input[type=text], input[type=submit], input[type=button],select, option, button{
+    background-color: #455d7a;
+    border-radius: 3px;
+    border: 1px solid #f95959;
+    color: #e3e3e3;
+    transition: all .25s ease-in-out;
+    font-size: 1vw;
+}
+#updateUserDiv {
+    width: 40%;
+    padding-left: 5%;
+    padding-right: 5%;
+    float: right;
+    font-size: 1.3vw;
+}
+#userFormMsg {
+    clear: both;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}

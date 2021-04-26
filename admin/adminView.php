@@ -15,6 +15,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
 <html>
     <head>
         <title>Inventory Management System</title>
+        <link rel="stylesheet" href="../style.css">
         <style type="text/css">
             body{
                 text-align: center;
@@ -29,7 +30,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
             <input type="button" value="Order Inventory" name="orderInventory" /><br>
             <input type="button" value="Check Inventory" name="checkInventory" /></br>
             <input type="button" value="Remove Inventory"name="removeInventory" /></br>
-            <input type="button" value="Manage Users"    name="manageUsers" /></br>
+            <input type="button" value="Manage Users"    name="manageUsers" onClick="document.location.href='./usersView.php'"/></br>
             <input type="button" value="Manage Vendors"  name="manageVendors" /></br>
         </form>
     </body>

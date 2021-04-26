@@ -15,6 +15,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
 <html>
     <head>
         <title>Inventory Management System</title>
+        <link rel="stylesheet" href="../style.css">
         <style type="text/css">
             body{
                 text-align: center;
