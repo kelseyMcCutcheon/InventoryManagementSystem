@@ -5,7 +5,7 @@
         die("unauthorized access");
     }
     require './admin.php';
-    $users = fetchUsers();
+    $users = fetchInventory();
 
 ?>
 
@@ -20,9 +20,9 @@
         </style>
     </head>
     <body>
-        <h1>Manage Users | <a href="./adminView.php">Admin Home</a></h1>
-        <h4 id="usersFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
-        <div id="addUserDiv">
+        <h1>Add Inventory | <a href="./adminView.php">Admin Home</a></h1>
+        <h4 id="inventoryFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
+        <div id="addInventoryDiv">
             <table>
                 <form name="add_inventory" action="addInventory.php" method="post">
                     <tr>

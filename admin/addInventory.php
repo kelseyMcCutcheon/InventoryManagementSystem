@@ -1,5 +1,4 @@
 <?php
-#AddInventory Function
     session_start();
     require "../database/connection.php";
     if($_SERVER["REQUEST_METHOD"] == "POST") {

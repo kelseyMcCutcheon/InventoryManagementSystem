@@ -40,6 +40,23 @@ function removeUsers(){}
 #JACOB
 function addUsers(){}
 
+function fetchInventory(){
+    $connection = db_connect();
+    $query = "select part_id, vendor_id, product_id, part_name, part_price, stock from parts;";
+    $result = mysqli_query($connection, $query);
+    $parts = array();
+    //$parts[] = ['Part ID', 'Vendor ID', 'Product ID', 'Part Name', 'Part Price', 'Stock'];
+    while($row = mysqli_fetch_assoc($result)) {
+        $parts[] = ['partID' => $row['part_id'],
+                    'vendorID' => $row['vendor_id'],
+                    'productID' => $row['product_id'],
+                    'partName' => $row['part_name'],
+                    'partPrice' => $row['part_price'],
+                    'stock' => $row['stock']];
+    }
+    return $parts;
+}
+
 function fetchUsers(){
     $connection = db_connect();
     $query = "select user_id, email_address, first_name, last_name, user_type from users;";
