@@ -26,7 +26,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
         <h1>Welcome <?php echo $_SESSION['fn'] ?></h1>
         <p>Please Select An Action</p>
         <form action="repair.php" method="post">
-            <input type="button" value="Use Item"   name="useItem" /><br>
+            <input type="button" value="Use Item" name="useItem" onClick="document.location.href='./usePartView.php'"/ /><br>
             <input type="button" value="Report Issue" name="reportIssue" /><br>
             
         </form>

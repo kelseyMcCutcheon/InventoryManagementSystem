@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // checking if user is authorized - admin only
+    // checking if user is authorized - admin
     if ($_SESSION['user_role'] != 1) {
         die("unauthorized access");
     }
@@ -11,7 +11,7 @@
 
 <html>
     <head>
-        <title>Add Inventory</title>
+        <title>Remove Inventory</title>
         <link rel="stylesheet" href="../style.css">
         <style type="text/css">
             body{
@@ -20,11 +20,11 @@
         </style>
     </head>
     <body>
-        <h1>Add Inventory | <a href="./adminView.php">Admin Home</a></h1>
+        <h1>Remove Inventory | <a href="./adminView.php">Admin Home</a></h1>
         <h4 id="inventoryFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
-        <div id="addInventoryDiv">
+        <div id="removeInventoryDiv">
             <table>
-                <form name="add_inventory" action="addInventory.php" method="post">
+                <form name="remove_inventory" action="removeInventory.php" method="post">
                     <tr>
                         <th>Part ID: </th>
                         <th><input type="text" name="partID" required></th>
@@ -51,10 +51,9 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <th><input type="submit" name="s" value="Add Inventory"></th>
+                        <th><input type="submit" name="s" value="Remove Inventory"></th>
                     </tr>
                 </form>
             </table>
         </div>
-        
         
