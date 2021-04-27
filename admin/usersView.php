@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>Manage Users | <a href="./adminView.php">Admin Home</a></h1>
-        <h4 id="usersFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
+        <div id="usersFormMsg"><h2><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h2></div>
         <div id="addUserDiv">
             <table>
                 <form name="add_user" action="addUser.php" method="post">

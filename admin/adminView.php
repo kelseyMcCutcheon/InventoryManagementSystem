@@ -1,5 +1,9 @@
 <?php 
     session_start();
+    //checking if user is authorized
+    if ($_SESSION['user_role'] != 1) {
+        die("unauthorized access");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +33,3 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
             <input type="submit" value="Manage Vendors"  name="manageVendors" /></br>
         </form>
     </body>
-
-<?php
-   // session_start();
-    //checking if user is authorized
-    if ($_SESSION['user_role'] != 1) {
-        die("unauthorized access");
-    }
-    
-?>

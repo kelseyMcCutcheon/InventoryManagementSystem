@@ -66,9 +66,17 @@ tr, td {
     float: right;
     font-size: 1.3vw;
 }
-#userFormMsg {
-    clear: both;
+#usersFormMsg {
     text-align: center;
+    width: 20%;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+#usersFormMsg h2 {
+    
+    background-color: #455d7a;
+    border-radius: 5px;
+    border: 4px solid #f95959;
 }
 
 .error {
