@@ -1,17 +1,17 @@
 <?php
     session_start();
-    // checking if user is authorized - admin
-    if ($_SESSION['user_role'] != 1) {
+    // checking if user is authorized - repair
+    if ($_SESSION['user_role'] != 2) {
         die("unauthorized access");
     }
-    require './admin.php';
+    require './repair.php';
     $users = fetchInventory();
 
 ?>
 
 <html>
     <head>
-        <title>Remove Inventory</title>
+        <title>Use Part</title>
         <link rel="stylesheet" href="../style.css">
         <style type="text/css">
             body{
@@ -20,11 +20,11 @@
         </style>
     </head>
     <body>
-        <h1>Remove Inventory | <a href="./adminView.php">Admin Home</a></h1>
+        <h1>Use Part | <a href="./repairView.php">Repair Home</a></h1>
         <h4 id="inventoryFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
-        <div id="removeInventoryDiv">
+        <div id="usePartDiv">
             <table>
-                <form name="remove_inventory" action="removeInventory.php" method="post">
+                <form name="use_part" action="usePart.php" method="post">
                     <tr>
                         <th>Part ID: </th>
                         <th><input type="text" name="partID" required></th>
@@ -51,7 +51,7 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <th><input type="submit" name="s" value="Remove Inventory"></th>
+                        <th><input type="submit" name="s" value="Use Part"></th>
                     </tr>
                 </form>
             </table>
