@@ -28,9 +28,7 @@ function checkInventory(){}
 #part ID from database
 #should be used by repair's useItem
 #KELSEY
-function removeInventory(){
-
-}
+function removeInventory(){}
 
 #manage login information, remove user
 #JACOB - validate user info

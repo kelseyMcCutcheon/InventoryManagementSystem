@@ -24,7 +24,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
             <input type="button" value="Add Inventory"   name="addInventory" onClick="document.location.href='./addInventoryView.php'"/><br>
             <input type="submit" value="Order Inventory" name="orderInventory" /><br>
             <input type="submit" value="Check Inventory" name="checkInventory" /></br>
-            <input type="submit" value="Remove Inventory"name="removeInventory" /></br>
+            <input type="button" value="Remove Inventory"name="removeInventory" onClick="document.location.href='./removeInventoryView.php'"/></br>
             <input type="button" value="Manage Users" name="manageUsers" onClick="document.location.href='./usersView.php'"/></br>
             <input type="button" value="Manage Vendors"  name="manageVendors" /></br>
         </form>
