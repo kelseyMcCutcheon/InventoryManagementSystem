@@ -27,7 +27,7 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
         <p>Please Select An Action</p>
         <form action="repair.php" method="post">
             <input type="button" value="Use Item" name="useItem" onClick="document.location.href='./usePartView.php'"/ /><br>
-            <input type="button" value="Report Issue" name="reportIssue" /><br>
+            <input type="button" value="Report Issue" name="reportIssue" onClick="document.location.href='./reportStart.php'"/><br>
             
         </form>
     </body>
