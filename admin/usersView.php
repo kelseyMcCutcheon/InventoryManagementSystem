@@ -22,41 +22,6 @@
     <body>
         <h1>Manage Users | <a href="./adminView.php">Admin Home</a></h1>
         <div id="usersFormMsg"><h2><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h2></div>
-        <div id="addUserDiv">
-            <table>
-                <form name="add_user" action="addUser.php" method="post">
-                    <tr>
-                        <th>Email: </th>
-                        <th><input type="text" name="email" required></th>
-                    </tr>
-                    <tr>
-                        <th>First Name: </th>
-                        <th> <input type="text" name="fn" required></th>
-                    </tr>
-                    <tr>
-                        <th>Last Name</th>
-                        <th><input type="text" name="ln" required></th>
-                    </tr>
-                    <tr>
-                        <th>Password</th>
-                        <th><input type="text" name="pw" required></th>
-                    </tr>
-                    <tr>
-                        <th>User Role</th>
-                        <th><select name="role" required>
-                                    <option value="">None</option>    
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                            </select>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th><input type="submit" name="s" value="Add User"></th>
-                    </tr>
-                </form>
-            </table>
-        </div>
         
         <div id="userTableDiv">
             <!-- https://stackoverflow.com/questions/4746079/how-to-create-a-html-table-from-a-php-array -->
@@ -81,27 +46,64 @@
                 </tbody>
             </table>
         </div>
-        <div id="updateUserDiv">
-            <form name="update_user" action="validateUserUpdate.php" method="post">
-                <label for="users">User to modify:</label>
-                    <select name="users" required>
-                        <option value="">None</option>
-                        <?php foreach($users as $row): array_map('htmlentities', $row);?>
-                            <option value=<?php echo $row['id']?> > <?php echo $row['id']?> </option>
-                        <?php endforeach; ?>
-                    </select>
-                <label for="options">Item to modify:</label>
-                    <select name="options" required>
-                        <option value="">None</option>
-                            <?php foreach($users[0] as $key=>$value){
-                                //dont want to be able to modify id
-                                if ($key != "id") {
-                                    echo "<option value=" . $key .">" . $key . "</option>";
-                                }}?>
-                    </select>
-                <input type="text" id="updateVal" name="updateVal" required>
-                <input type="submit" name="s" value="Update User">
-            </form>
+        <div id="rightUsersDiv">
+            <div id="updateUserDiv">
+                <form name="update_user" action="validateUserUpdate.php" method="post">
+                    <label for="users">User to modify:</label>
+                        <select name="users" required>
+                            <option value="">None</option>
+                            <?php foreach($users as $row): array_map('htmlentities', $row);?>
+                                <option value=<?php echo $row['id']?> > <?php echo $row['id']?> </option>
+                            <?php endforeach; ?>
+                        </select>
+                    <label for="options">Item to modify:</label>
+                        <select name="options" required>
+                            <option value="">None</option>
+                                <?php foreach($users[0] as $key=>$value){
+                                    //dont want to be able to modify id
+                                    if ($key != "id") {
+                                        echo "<option value=" . $key .">" . $key . "</option>";
+                                    }}?>
+                        </select>
+                    <input type="text" id="updateVal" name="updateVal" required>
+                    <input type="submit" name="s" value="Update User">
+                </form>
+            </div>
+            <div id="addUserDiv">
+                <table>
+                    <form name="add_user" action="addUser.php" method="post">
+                        <tr>
+                            <th>Email: </th>
+                            <th><input type="text" name="email" required></th>
+                        </tr>
+                        <tr>
+                            <th>First Name: </th>
+                            <th> <input type="text" name="fn" required></th>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <th><input type="text" name="ln" required></th>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <th><input type="text" name="pw" required></th>
+                        </tr>
+                        <tr>
+                            <th>User Role</th>
+                            <th><select name="role" required>
+                                        <option value="">None</option>    
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th><input type="submit" name="s" value="Add User"></th>
+                        </tr>
+                    </form>
+                </table>
+            </div>
         </div>
     </body>
 </html>
