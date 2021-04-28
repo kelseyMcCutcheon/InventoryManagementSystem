@@ -72,7 +72,7 @@
                         <td><?php echo implode('</td><td>', $row); ?></td>
                         <td>
                             <form name="deleteUser" action="deleteUser.php" method="post">
-                                <input type="hidden" name="delete_user_id" value=<?php echo $row['id']?> >
+                                <input type="hidden" name="delete_user_id" value=<?php echo $row['id']; ?> >
                                 <input type="submit" name="s" value="Delete User" >
                             </form>
                         </td>

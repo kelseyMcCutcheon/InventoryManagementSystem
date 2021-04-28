@@ -11,31 +11,19 @@
     
 
     function removeInventory() {
-        $addInventoryMsg = "";
-        $partID = $_POST['partID'];
-        $vendorID = $_POST['vendorID'];
-        $productID = $_POST['productID'];
-        $partName = $_POST['partName'];
-        $partPrice = $_POST['partPrice'];
-        $stock = $_POST['stock'];
-
-        //validate info?
-        
-        if(empty($form_msg)) {
-            $connection = db_connect();
-            $query = "delete from parts (part_id, vendor_id, product_id, part_name, part_price, stock)
-                        values ('$partID', '$vendorID', '$productID', '$partName', '$partPrice', '$stock');";
-            if (mysqli_query($connection, $query)) {
-                $form_msg = "$partName: $partID has been removed";
-            } else {
-                $form_msg = "update failed" . mysqli_error($connection);
-            }
-            mysqli_close($connection);
+        $connection = db_connect();
+        $deletePartMsg = "";
+        $deletePartId = $_POST["remove_part_id"];
+        $query = "delete from parts where part_id = '$deletePartId';";
+        if (mysqli_query($connection, $query)) {
+            $deletePartMsg = "Part $deletePartId has been removed";
+        } else {
+            $deletePartMsg = "update failed" . mysqli_error($connection);
         }
-
-        $_SESSION['form_msg'] = $form_msg;
+        mysqli_close($connection);
+        
+        $_SESSION['form_msg'] = $deletePartMsg;
         header("Location: ./removeInventoryView.php");
-
     }
 
 
