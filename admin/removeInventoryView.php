@@ -38,8 +38,8 @@
                         <td><?php echo implode('</td><td>', $row); ?></td>
                         <td>
                             <form name="removePart" action="removeInventory.php" method="post">
-                                <input type="hidden" name="delete_part_id" >
-                                <input type="submit" name="s" value="Delete Part" >
+                                <input type="hidden" name="remove_part_id" value=<?php echo $row['partID']; ?> >
+                                <input type="submit" name="s" value="Remove Part" >
                             </form>
                         </td>
                         </tr>
@@ -47,6 +47,7 @@
                 </tbody>
             </table>
         </div>
+        
   
     </body>
 </html>

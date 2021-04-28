@@ -5,7 +5,7 @@
         die("unauthorized access");
     }
     require './repair.php';
-    $users = fetchInventory();
+    $parts = fetchInventory();
 
 ?>
 
@@ -20,40 +20,33 @@
         </style>
     </head>
     <body>
-        <h1>Use Part | <a href="./repairView.php">Repair Home</a></h1>
+        <h1>Use Part | <a href="./adminView.php">Admin Home</a></h1>
         <h4 id="inventoryFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
-        <div id="usePartDiv">
-            <table>
-                <form name="use_part" action="usePart.php" method="post">
+        
+        <div id="inventoryTableDiv">
+            <!-- https://stackoverflow.com/questions/4746079/how-to-create-a-html-table-from-a-php-array -->
+            <table id="inventoryTable">
+                <thead>
                     <tr>
-                        <th>Part ID: </th>
-                        <th><input type="text" name="partID" required></th>
+                        <th><?php echo implode('</th><th>', array_keys(current($parts))); ?></th> 
                     </tr>
-                    <tr>
-                        <th>Vendor ID: </th>
-                        <th> <input type="text" name="vendorID" required></th>
-                    </tr>
-                    <tr>
-                        <th>Product ID: </th>
-                        <th><input type="text" name="productID" required></th>
-                    </tr>
-                    <tr>
-                        <th>Part Name</th>
-                        <th><input type="text" name="partName" required></th>
-                    </tr>
-                    <tr>
-                        <th>Part Price</th>
-                        <th><input type="text" name="partPrice" required</th>
-                    </tr>
-                                        <tr>
-                        <th>Stock: </th>
-                        <th><input type="text" name="stock" required</th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th><input type="submit" name="s" value="Use Part"></th>
-                    </tr>
-                </form>
+                </thead>
+                <tbody>
+                    <?php foreach ($parts as $row): array_map('htmlentities', $row); ?>
+                        <tr>
+                        <td><?php echo implode('</td><td>', $row); ?></td>
+                        <td>
+                            <form name="usePart" action="usePart.php" method="post">
+                                <input type="hidden" name="use_part_id" value=<?php echo $row['partID']; ?> >
+                                <input type="submit" name="s" value="Use Part" >
+                            </form>
+                        </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </div>
         
+  
+    </body>
+</html>

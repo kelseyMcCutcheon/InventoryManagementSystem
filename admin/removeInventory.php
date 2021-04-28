@@ -13,8 +13,8 @@
     function removeInventory() {
         $connection = db_connect();
         $deletePartMsg = "";
-        $deletePartId = $_POST["delete_part_id"];
-            $query = "delete from parts where part_id = $deletePartId;";
+        $deletePartId = $_POST["remove_part_id"];
+        $query = "delete from parts where part_id = $deletePartId;";
         if (mysqli_query($connection, $query)) {
             $deletePartMsg = "Part $deletePartId has been removed";
         } else {
