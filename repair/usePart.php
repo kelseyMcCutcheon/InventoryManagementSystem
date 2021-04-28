@@ -14,7 +14,7 @@
         $connection = db_connect();
         $usePartMsg = "";
         $usePartId = $_POST["use_part_id"];
-        $query = "delete from parts where part_id = $usePartId;";
+        $query = "delete from parts where part_id = '$usePartId';";
         if (mysqli_query($connection, $query)) {
             $usePartMsg = "Part $usePartId has been removed";
         } else {
