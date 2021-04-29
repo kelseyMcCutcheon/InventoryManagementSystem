@@ -20,7 +20,7 @@
         </style>
     </head>
     <body>
-        <h1>Use Part | <a href="./adminView.php">Admin Home</a></h1>
+        <h1>Use Part | <a href="./repairView.php">Repair Home</a></h1>
         <h4 id="inventoryFormMsg"><?php if(isset($_SESSION['form_msg'])){echo $_SESSION['form_msg'];}?></h4>
         
         <div id="inventoryTableDiv">

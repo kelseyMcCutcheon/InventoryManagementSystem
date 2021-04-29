@@ -27,7 +27,6 @@ Kelsey McCutcheon, Griffin Baxter, Jacob Capra
             <button onClick="document.location.href='./selectType.php'">Check Inventory</button>
             <button onClick="document.location.href='./removeInventoryView.php'">Remove Inventory</button>
             <button onClick="document.location.href='./usersView.php'">Manage Users</button>
-            <button >Mange Vendors</button>
         </div>
         <!-- <form name="admin" action="admin.php" method="post">
             <input type="button" value="Add Inventory"   name="addInventory" onClick="document.location.href='./addInventoryView.php'"/><br>
